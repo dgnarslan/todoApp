@@ -1,0 +1,272 @@
+@import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;900&display=swap');
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  background: #6190e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #a7bfe8,
+    #6190e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #a7bfe8,
+    #6190e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
+  position: relative;
+  .github-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #333c;
+    transition: 300ms all;
+    a {
+      width: 0;
+      height: 100%;
+      transform: translateX(100px);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      overflow-x: hidden;
+      opacity: 0;
+      transition: 600ms transform, 600ms opacity;
+    }
+    &::before {
+      content: '\f113';
+      font-family: 'FontAwesome';
+      display: grid;
+      place-items: center;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      transition: 300ms all;
+    }
+    &:hover {
+      width: 140px;
+      &::before {
+        opacity: 0;
+      }
+      a {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transform: translateX(0);
+        text-decoration: none;
+      }
+    }
+  }
+  .theme-button {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    transition: 300ms all;
+    background-color: #333c;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    &::before {
+      content: '\f186';
+      font-family: 'FontAwesome';
+      display: grid;
+      place-items: center;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      transition: 300ms all;
+    }
+    &.dark-btn {
+      background-color: #fff;
+      color: #333c;
+      &::before {
+        content: '\f185';
+        font-family: 'FontAwesome';
+        color: #333c;
+      }
+    }
+  }
+  &.dark-mode {
+    background: #333;
+    .task-tracker-container {
+      .add-task-wrapper {
+        .add-btn {
+          button {
+            background-color: #fff !important;
+            color: #333;
+          }
+        }
+      }
+      .tasks-container {
+        background-image: linear-gradient(
+          120deg,
+          rgba(110, 124, 131, 0.5) 0%,
+          rgba(251, 253, 255, 0.205) 100%
+        );
+      }
+    }
+    .github-link {
+      background: #fff;
+      a {
+        color: #333;
+      }
+      &::before {
+        color: #333;
+      }
+    }
+  }
+  .task-tracker-container {
+    width: 40%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    flex-direction: column;
+    padding: 10px;
+    .task-tracker-header {
+      width: 100%;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      h4 {
+        color: #fff;
+      }
+    }
+    .add-task-wrapper {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .add-txt {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 5px;
+        input {
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-radius: 5px;
+          padding: 0 10px;
+          outline: none;
+          font-size: 16px;
+          color: #333;
+          &::placeholder {
+            color: #a9a9a9;
+            font-size: 14px;
+          }
+        }
+      }
+      .add-btn {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        button {
+          width: 100%;
+          height: 40px;
+          border: none;
+          background-color: #333c;
+          color: #fff;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 300ms all;
+          &:hover {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+    .tasks-container {
+      width: 100%;
+      height: calc(100% - 140px);
+      overflow: auto;
+      border-radius: 5px;
+      background-image: linear-gradient(
+        120deg,
+        rgba(194, 233, 251, 0.5) 0%,
+        rgba(251, 253, 255, 0.205) 100%
+      );
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      ul {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        margin: 0 !important  ;
+        li {
+          width: 100%;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          border-radius: 5px;
+          margin-top: 10px;
+          &:first-child {
+            margin-top: 0;
+          }
+          &.line-through {
+            span {
+              text-decoration: line-through;
+            }
+          }
+          span {
+            width: calc(100% - 80px);
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: baseline;
+            padding-left: 10px;
+            border-radius: 5px 0 0 5px;
+          }
+          .delete-btn {
+            width: 80px;
+            height: 100%;
+            background-color: #333c;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            &::before {
+              content: '\f2ed';
+              width: 100%;
+              height: 100%;
+              font-family: 'Font Awesome 5 Free';
+              font-size: 18px;
+              margin-right: 10px;
+              color: #fff;
+              display: grid;
+              place-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
