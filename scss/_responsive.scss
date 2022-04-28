@@ -1,0 +1,54 @@
+@media only screen and (max-width: 1400px) {
+  .main {
+    .task-tracker-container {
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .main {
+    .task-tracker-container {
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .main {
+    .task-tracker-container {
+      width: 95%;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main {
+    .task-tracker-container {
+      .task-tracker-header {
+        height: 40px;
+      }
+      .add-task-wrapper {
+        flex-direction: column;
+        height: 120px;
+        .add-txt {
+          height: 40%;
+          width: 100%;
+        }
+        .add-btn {
+          width: 60%;
+          height: 60%;
+        }
+      }
+    }
+    .github-link {
+      top: 90%;
+
+      right: 10px;
+    }
+    .theme-button {
+      top: 90%;
+      left: 10px;
+    }
+  }
+}

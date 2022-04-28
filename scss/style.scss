@@ -1,4 +1,5 @@
 @import 'reset';
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;900&display=swap');
 html,
 body {
@@ -206,7 +207,7 @@ body {
     }
     .tasks-container {
       width: 100%;
-      height: calc(100% - 140px);
+      flex: 1;
       overflow: auto;
       border-radius: 5px;
       background-image: linear-gradient(
@@ -270,3 +271,5 @@ body {
     }
   }
 }
+
+@import 'responsive';
